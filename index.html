@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f5f0">
+  <title>織序・鉤針編織圖編輯器</title>
+  <link rel="stylesheet" href="try2.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="織序首頁">
+        <span class="brand-mark" aria-hidden="true">編</span>
+        <span><strong>織序</strong><small>CROCHET CHART STUDIO</small></span>
+      </a>
+      <div class="project-name">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>未命名織圖</span>
+        <span class="draft-label">草稿</span>
+      </div>
+      <div class="top-actions">
+        <button class="button button-quiet" id="clearButton" type="button">清空畫布</button>
+        <button class="button button-primary" id="exportButton" type="button">
+          <span aria-hidden="true">⇩</span> 匯出織圖
+        </button>
+      </div>
+    </header>
+
+    <section class="workspace" aria-label="織圖工作區">
+      <div class="canvas-toolbar">
+        <div>
+          <p class="eyebrow">MY CANVAS</p>
+          <h1>織圖工作區</h1>
+        </div>
+        <div class="canvas-tools">
+          <label class="grid-toggle" for="gridToggle">
+            <input id="gridToggle" type="checkbox" checked>
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span>顯示格紋</span>
+          </label>
+          <span class="tool-divider" aria-hidden="true"></span>
+          <button class="icon-button" id="zoomOutButton" type="button" aria-label="縮小畫布">−</button>
+          <span class="zoom-value" id="zoomValue">100%</span>
+          <button class="icon-button" id="zoomInButton" type="button" aria-label="放大畫布">＋</button>
+          <button class="icon-button reset-button" id="resetViewButton" type="button" aria-label="重設檢視" title="重設檢視">↺</button>
+        </div>
+      </div>
+
+      <div class="canvas-frame" id="canvasFrame">
+        <div class="canvas-surface grid-on" id="canvasSurface" aria-label="可編輯織圖畫布">
+          <div class="empty-state" id="emptyState">
+            <span class="empty-icon" aria-hidden="true">⌁</span>
+            <strong>從一針開始，編織你的想像</strong>
+            <span>在下方選擇符號與數量，再按「加入畫布」</span>
+          </div>
+          <div id="symbolLayer" class="symbol-layer"></div>
+        </div>
+        <div class="canvas-hint">
+          <span class="hint-dot" aria-hidden="true"></span>
+          拖曳符號可移動・按住 Shift 點選可多選
+        </div>
+      </div>
+    </section>
+
+    <section class="composer" aria-label="鉤針符號面板">
+      <div class="composer-heading">
+        <div>
+          <p class="eyebrow">STITCH BUILDER</p>
+          <h2>鉤針符號面板</h2>
+        </div>
+        <p class="composer-help">選擇符號與數量，快速放進畫布</p>
+      </div>
+
+      <div class="composer-content">
+        <div class="stitch-picker" id="stitchPicker" role="group" aria-label="選擇鉤針編織符號"></div>
+
+        <div class="composer-divider" aria-hidden="true"></div>
+
+        <div class="quantity-control">
+          <label for="quantityInput">數量</label>
+          <div class="quantity-stepper">
+            <button type="button" id="quantityMinus" aria-label="減少數量">−</button>
+            <input id="quantityInput" type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="符號數量">
+            <button type="button" id="quantityPlus" aria-label="增加數量">＋</button>
+          </div>
+          <span class="quantity-note">最多 99 個</span>
+        </div>
+
+        <button class="button button-add" id="addButton" type="button">
+          <span aria-hidden="true">＋</span> 加入畫布
+        </button>
+      </div>
+
+      <div class="selection-tools" aria-label="選取符號編輯工具">
+        <div class="selection-status">
+          <span class="selection-icon" aria-hidden="true">⌖</span>
+          <span id="selectionLabel">尚未選取符號</span>
+        </div>
+        <span class="selection-divider" aria-hidden="true"></span>
+        <div class="edit-group">
+          <span class="edit-label">旋轉</span>
+          <button class="mini-button" id="rotateLeftButton" type="button" aria-label="逆時針旋轉 15 度" disabled>↶</button>
+          <button class="mini-button" id="rotateRightButton" type="button" aria-label="順時針旋轉 15 度" disabled>↷</button>
+        </div>
+        <span class="selection-divider" aria-hidden="true"></span>
+        <label class="bend-control" for="bendInput">
+          <span class="edit-label">彎曲排列</span>
+          <input id="bendInput" type="range" min="-80" max="80" value="0" disabled>
+          <span class="bend-note" id="bendNote">多選後調整弧度</span>
+        </label>
+        <span class="selection-divider selection-divider-end" aria-hidden="true"></span>
+        <button class="text-button duplicate-button" id="duplicateButton" type="button" disabled>複製</button>
+        <button class="text-button delete-button" id="deleteButton" type="button" disabled>刪除</button>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="try2.js"></script>
+</body>
+</html>
