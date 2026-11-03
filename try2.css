@@ -343,6 +343,7 @@ h1, h2 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: .02em; }
   .composer { padding: 12px 12px calc(10px + env(safe-area-inset-bottom, 0px)); }
   .composer-heading-actions { gap: 7px; }
   .composer-help { max-width: 140px; text-align: right; line-height: 1.4; }
+  .composer-toggle { min-height: 44px; padding-inline: 10px; }
   .composer-content { flex-wrap: wrap; gap: 8px; }
   .stitch-picker { flex-basis: 100%; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 3px; }
   .stitch-option { min-height: 68px; padding-inline: 1px; }
