@@ -213,14 +213,14 @@ h1, h2 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: .02em; }
 .composer-heading h2 { font-size: 15px; }
 .composer-help { margin: 0; color: #a1a198; font-size: 10px; }
 .composer-content { display: flex; align-items: center; gap: 16px; }
-.stitch-picker { flex: 1; display: grid; grid-template-columns: repeat(7, minmax(56px, 1fr)); gap: 5px; }
+.stitch-picker { flex: 1; display: grid; grid-template-columns: repeat(9, minmax(56px, 1fr)); gap: 5px; }
 .stitch-option { min-width: 0; min-height: 75px; padding: 6px 3px 5px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 1px solid transparent; border-radius: 9px; background: transparent; cursor: pointer; transition: .15s ease; }
 .stitch-option:hover { background: #f7f6f1; }
 .stitch-option.active { border-color: #cad7c9; background: #f1f5ef; }
 .stitch-preview { width: 35px; height: 35px; display: grid; place-items: center; }
 .stitch-preview svg { width: 35px; height: 35px; overflow: visible; }
 .stitch-name { color: #444741; font-size: 9px; font-weight: 600; white-space: nowrap; }
-.stitch-code { color: #a0a198; font-size: 7px; letter-spacing: .02em; white-space: nowrap; }
+.stitch-code { color: #a0a198; font-size: 7px; letter-spacing: .02em; line-height: 1.15; text-align: center; }
 .composer-divider { width: 1px; height: 58px; background: var(--line); }
 .color-picker { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 7px; }
 .color-picker-label { color: #777970; font-size: 10px; font-weight: 600; white-space: nowrap; }
@@ -290,7 +290,7 @@ h1, h2 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: .02em; }
 @media (max-width: 1000px) {
   .composer { padding-inline: 18px; }
   .composer-content { gap: 10px; }
-  .stitch-picker { grid-template-columns: repeat(7, minmax(42px, 1fr)); gap: 2px; }
+  .stitch-picker { grid-template-columns: repeat(9, minmax(42px, 1fr)); gap: 2px; }
   .stitch-option { min-height: 70px; padding-inline: 1px; }
 }
 
@@ -300,7 +300,7 @@ h1, h2 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: .02em; }
   .workspace { padding: 20px 18px 16px; }
   .composer { padding: 16px 18px calc(14px + env(safe-area-inset-bottom, 0px)); }
   .composer-content { align-items: flex-start; gap: 10px; }
-  .stitch-picker { grid-template-columns: repeat(7, minmax(42px, 1fr)); gap: 2px; }
+  .stitch-picker { grid-template-columns: repeat(9, minmax(42px, 1fr)); gap: 2px; }
   .stitch-option { min-height: 70px; padding-inline: 1px; }
   .stitch-name { font-size: 8px; }
   .stitch-code { font-size: 6px; }
