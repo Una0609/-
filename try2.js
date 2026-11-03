@@ -31,7 +31,7 @@ const stitchDefinitions = {
   },
   bubble3: {
     name: "3針泡泡針",
-    code: "3 DC BOBBLE/PUFF/CLUSTER",
+    code: "3 DC POP",
     paths: [
       '<path d="M24 39V33"/>',
       '<path d="M24 33 16 17Q15 13 19 13Q22 13 24 18Q26 13 29 13Q33 13 32 17L24 33"/>',
@@ -40,7 +40,7 @@ const stitchDefinitions = {
   },
   bubble5: {
     name: "5針泡泡針",
-    code: "5 TR POPCORN",
+    code: "5 TR POP",
     paths: [
       '<path d="M24 39V34"/>',
       '<path d="M24 34 14 18Q12 13 16 12Q20 11 24 19Q28 11 32 12Q36 13 34 18L24 34"/>',
@@ -49,7 +49,7 @@ const stitchDefinitions = {
   },
   popcorn: {
     name: "爆米花針",
-    code: "5 TR THEN YARN TOGETHER",
+    code: "5 TR TOG",
     paths: [
       '<path d="M24 39V35"/>',
       '<path d="M24 35C15 31 12 23 14 17 16 11 21 13 24 19 27 13 32 11 34 17 36 23 33 31 24 35Z"/>',
