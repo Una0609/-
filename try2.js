@@ -29,10 +29,32 @@ const stitchDefinitions = {
     code: "TR",
     paths: ['<path d="M24 39V10M13 12H35M20 19 28 16M19 26 29 22"/>']
   },
-  puff: {
-    name: "棗型針",
-    code: "PUFF",
-    paths: ['<path d="M24 36V30"/>', '<ellipse cx="24" cy="21" rx="8" ry="11"/>', '<path d="M20 14c2-2 5-2 7 0"/>']
+  bubble3: {
+    name: "3針泡泡針",
+    code: "3 DC BOBBLE/PUFF/CLUSTER",
+    paths: [
+      '<path d="M24 39V33"/>',
+      '<path d="M24 33 16 17Q15 13 19 13Q22 13 24 18Q26 13 29 13Q33 13 32 17L24 33"/>',
+      '<path d="M18 22 30 22M21 28 27 28"/>'
+    ]
+  },
+  bubble5: {
+    name: "5針泡泡針",
+    code: "5 TR POPCORN",
+    paths: [
+      '<path d="M24 39V34"/>',
+      '<path d="M24 34 14 18Q12 13 16 12Q20 11 24 19Q28 11 32 12Q36 13 34 18L24 34"/>',
+      '<path d="M16 19 32 19M19 25 29 25M22 30 26 30"/>'
+    ]
+  },
+  popcorn: {
+    name: "爆米花針",
+    code: "5 TR THEN YARN TOGETHER",
+    paths: [
+      '<path d="M24 39V35"/>',
+      '<path d="M24 35C15 31 12 23 14 17 16 11 21 13 24 19 27 13 32 11 34 17 36 23 33 31 24 35Z"/>',
+      '<path d="M18 17 30 29M30 17 18 29M15 23H33M24 13V33"/>'
+    ]
   }
 };
 
@@ -65,7 +87,7 @@ let toastTimer;
 function isValidSymbol(symbol) {
   return symbol
     && Number.isInteger(symbol.id)
-    && Object.prototype.hasOwnProperty.call(stitchDefinitions, symbol.type)
+    && (symbol.type === "puff" || Object.prototype.hasOwnProperty.call(stitchDefinitions, symbol.type))
     && Number.isFinite(symbol.x)
     && Number.isFinite(symbol.y)
     && Number.isFinite(symbol.rotation)
@@ -74,7 +96,12 @@ function isValidSymbol(symbol) {
 }
 
 function normalizeSymbol(symbol) {
-  return { ...symbol, color: symbol.color || "black", scale: symbol.scale || 1 };
+  return {
+    ...symbol,
+    type: symbol.type === "puff" ? "bubble3" : symbol.type,
+    color: symbol.color || "black",
+    scale: symbol.scale || 1
+  };
 }
 
 function loadStoredState() {
