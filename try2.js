@@ -649,6 +649,15 @@ document.querySelector("#colorPicker").addEventListener("click", (event) => {
 });
 
 document.querySelector("#addButton").addEventListener("click", addSymbols);
+document.querySelector("#composerToggle").addEventListener("click", (event) => {
+  const button = event.currentTarget;
+  const expanded = button.getAttribute("aria-expanded") !== "true";
+  button.setAttribute("aria-expanded", String(expanded));
+  document.querySelector("#composerBody").hidden = !expanded;
+  document.querySelector("#composerToggleLabel").textContent = expanded ? "收合" : "展開";
+  document.querySelector("#composerToggleIcon").textContent = expanded ? "⌄" : "⌃";
+  button.setAttribute("aria-label", expanded ? "收合鉤針符號面板" : "展開鉤針符號面板");
+});
 projectNameInput.addEventListener("input", () => {
   projectName = projectNameInput.value;
   markProjectDirty();
